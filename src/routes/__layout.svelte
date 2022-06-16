@@ -1,5 +1,7 @@
 <script>
-  import "../app.css";
+	import '../app.css';
 </script>
 
-<slot />
+<div class="container mx-6 max-w-lg">
+	<slot />
+</div>
