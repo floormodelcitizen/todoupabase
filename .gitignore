@@ -1,6 +1,8 @@
-node_modules/
-*.zip
 .DS_Store
-.idea
-notes.md
-catch-of-the-day/build/
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
