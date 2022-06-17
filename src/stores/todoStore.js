@@ -11,22 +11,21 @@ export const addTodo = (/** @type string */ text) => {
 };
 
 export const deleteTodo = (/** @type {any} */ id) => {
-	todos.update((/** @type {any[]} */ todos) =>
-		todos.filter((todo) => todo.id !== id)
-	);
+	todos.update((todos) => todos.filter((todo) => todo.id !== id));
 };
 
 export const toggleTodoCompleted = (id) => {
-	todos.update((/** @type {any[]} */ todos) => {
+	todos.update((todos) => {
 		let index = -1;
-		todos.forEach((i) => {
-			if (i.id === id) {
-				index = 1;
+		for (let i = 0; i < todos.length; i += 1) {
+			if (todos[i].id === id) {
+				index = i;
+				break;
 			}
-			if (index !== -1) {
-				todos[index].completed = !todos[index].completed;
-			}
-			return todos;
-		});
+		}
+		if (index !== -1) {
+			todos[index].completed = !todos[index].completed;
+		}
+		return todos;
 	});
 };
