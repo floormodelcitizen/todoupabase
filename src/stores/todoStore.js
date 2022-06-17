@@ -5,7 +5,10 @@ export const /** @type any */ todos = writable([]);
 
 export const addTodo = (/** @type string */ text) => {
 	todos.update((/** @type {any} */ cur) => {
-		const newTodos = [...cur, { text, completed: false, id: Date.now() }];
+		const newTodos = [
+			...cur,
+			{ text, completed: false, id: Date.now() }
+		];
 		return newTodos;
 	});
 };

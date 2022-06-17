@@ -18,12 +18,14 @@
 			name="todo"
 			placeholder="What should we get done?"
 			class=" appearance-none shadow-sm border border-gray-200 p-2
-			focus:outline-none focus:border-gray-500 rounded-lg " />
+			focus:outline-none focus:border-gray-500 rounded-lg "
+		/>
 	</div>
 	<button
 		type="submit"
 		class="w-full shadow-sm rounded bg-blue-500 hover:bg-blue-600 text-white
-		py-2 px-4">
+		py-2 px-4"
+	>
 		Submit
 	</button>
 </form>
