@@ -16,15 +16,16 @@
 			bind:value={todo}
 			type="text"
 			name="todo"
-			placeholder="What should we get done?"
+			placeholder="What are we gonna get done?"
 			class=" appearance-none shadow-sm border border-gray-200 p-2
 			focus:outline-none focus:border-gray-500 rounded-lg "
 		/>
+		<input />
 	</div>
 	<button
 		type="submit"
-		class="w-full shadow-sm rounded bg-blue-500 hover:bg-blue-600 text-white
-		py-2 px-4"
+		class="w-full shadow-sm rounded bg-blue-500 hover:bg-blue-600
+		text-white py-2 px-4"
 	>
 		Submit
 	</button>

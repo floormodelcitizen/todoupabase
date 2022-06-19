@@ -28,6 +28,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@iconify/svelte": "^2.2.1",
+		"@supabase/supabase-js": "^1.35.3",
 		"@tailwindcss/typography": "^0.5.2",
 		"autoprefixer": "^10.4.7",
 		"postcss": "^8.4.14",
