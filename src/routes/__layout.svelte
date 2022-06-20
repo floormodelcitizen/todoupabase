@@ -1,4 +1,5 @@
 <script>
+	import Navbar from '../components/Navbar.svelte';
 	import { supabase } from '../supabase.js';
 	import Auth from '../components/Auth.svelte';
 	import { user } from '../stores/authStore.js';

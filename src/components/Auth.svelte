@@ -33,16 +33,15 @@
 
 <form on:submit|preventDefault={handleLogin}>
 	<div class="flex flex-col text-sm mb-2">
-		<label for="email" class="font-bold mb-2 text-gray-800">
-			Email
-		</label>
+		<label for="email" class="font-bold mb-2 text-gray-800" />
 		<input
 			bind:value={email}
 			type="email"
 			name="email"
-			placeholder="Your email"
-			class="app appearance-none shadow-sm border border-gray-200 p-2
-			focus:outline-none focus:border-gray-500 rounded-lg " />
+			placeholder="Please enter your email"
+			class="w-full app appearance-none shadow-sm border
+			border-gray-200 p-2 focus:outline-none focus:border-gray-500
+			rounded-lg " />
 	</div>
 	<button
 		type="submit"
