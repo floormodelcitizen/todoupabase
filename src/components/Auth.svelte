@@ -13,8 +13,8 @@
 			const { error } = await supabase.auth.signIn({ email });
 
 			//> Variance
-			if (error)
-				throw new Error('Check your email for the login link.');
+			if (error) throw error;
+			alert('Check your email for the login link.');
 		} catch (error) {
 			console.log('err :>>', err);
 			alert(error.error_description || error.message);
