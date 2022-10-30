@@ -1,9 +1,9 @@
 <script>
-	import { supabase } from '../supabase.js';
+	import { supabaseClient } from '../supabaseClient.js';
 
 	const logout = () => {
 		console.log('log out');
-		supabase.auth.signOut();
+		supabaseClient.auth.signOut();
 	};
 </script>
 
@@ -11,7 +11,8 @@
 	<button
 		on:click={logout}
 		class=" shadow-sm rounded bg-blue-500 hover:bg-blue-600 text-white
-		py-2 px-4">
+		py-2 px-4"
+	>
 		Log Out
 	</button>
 </div>
