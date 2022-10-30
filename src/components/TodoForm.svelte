@@ -1,10 +1,10 @@
 <script>
-	import { user } from '../stores/authStore.js';
-	import { addTodo } from '../stores/todoStore.js';
+	import { activeUser } from '../stores/authStore';
+	import { addTodo } from '../stores/todoStore';
 
 	let todo = '';
 	const handleSubmit = () => {
-		addTodo(todo, $user.id);
+		addTodo(todo, $activeUser.id);
 		todo = '';
 		console.log('submitting');
 	};
@@ -19,13 +19,15 @@
 			name="todo"
 			placeholder="What are we gonna get done?"
 			class=" appearance-none shadow-sm border border-gray-200 p-2
-			focus:outline-none focus:border-gray-500 rounded-lg " />
+			focus:outline-none focus:border-gray-500 rounded-lg "
+		/>
 		<input />
 	</div>
 	<button
 		type="submit"
 		class="w-full shadow-sm rounded bg-blue-500 hover:bg-blue-600
-		text-white py-2 px-4">
+		text-white py-2 px-4"
+	>
 		Submit
 	</button>
 </form>

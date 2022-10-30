@@ -1,10 +1,9 @@
 // @ts-nocheck
-import { supabase } from '../supabase';
+import { supabase } from '../supabaseClient';
 import { writable } from 'svelte/store';
 
-export const /** @type any */ todos = writable([]);
 
-export const name = writable('Svelte');
+export const todos = writable([]);
 
 export const loadTodos = async () => {
 	const { data, error } = await supabase.from('todos').select();
@@ -14,10 +13,10 @@ export const loadTodos = async () => {
 	todos.set(data);
 };
 
-export const addTodo = async (text, user_id) => {
+export const addTodo = async (task, user_id) => {
 	const { data, error } = await supabase
 		.from('todos')
-		.insert([{ text, completed: false, user_id }]);
+		.insert([{ task, is_complete: false, user_id }]);
 
 	if (error) return console.error(error);
 
@@ -38,7 +37,7 @@ export const deleteTodo = async (id) => {
 export const toggleTodoCompleted = async (id, currentState) => {
 	const { error } = await supabase
 		.from('todos')
-		.update({ completed: !currentState })
+		.update({ is_complete: !currentState })
 		.match({ id });
 
 	if (error) return console.error(error);
@@ -52,7 +51,7 @@ export const toggleTodoCompleted = async (id, currentState) => {
 			}
 		}
 		if (index !== -1) {
-			todos[index].completed = !todos[index].completed;
+			todos[index].is_complete = !todos[index].is_complete;
 		}
 		return todos;
 	});

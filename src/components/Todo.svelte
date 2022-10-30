@@ -16,17 +16,17 @@
 >
 	<input
 		type="checkbox"
-		name="completed"
-		checked={todo.completed}
+		name="complete"
+		checked={todo.is_complete}
 		on:change={() => completedTodo()}
 		class="magic mr-2 form-select h-5 w-5"
 	/>
 	<span
 		class={` flex-1 text-gray-800 ${
-			todo.completed ? 'line-through' : ''
+			todo.is_complete ? 'line-through' : ''
 		} `}
 	>
-		{todo.text}
+		{todo.task}
 	</span>
 
 	<button

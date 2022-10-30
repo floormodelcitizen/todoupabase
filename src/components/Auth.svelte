@@ -1,23 +1,21 @@
-<script>
-	import { name } from './../stores/todoStore.js';
-	import Error from './../../.svelte-kit/runtime/components/error.svelte';
-	import { supabase } from './../supabase.js';
+<script lang="ts">
+	import { supabaseClient } from '../supabaseClient';
 
 	let loading = false;
-	let email;
+	let email: string;
 
 	const handleLogin = async () => {
 		try {
 			loading = true;
-			console.log(email);
-			const { error } = await supabase.auth.signIn({ email });
-
-			//> Variance
+			const { error } = await supabaseClient.auth.signInWithOtp({
+				email
+			});
 			if (error) throw error;
-			alert('Check your email for the login link.');
+			alert('Check your email for the login link!');
 		} catch (error) {
-			console.log('err :>>', err);
-			alert(error.error_description || error.message);
+			if (error instanceof Error) {
+				alert(error.message);
+			}
 		} finally {
 			loading = false;
 		}
@@ -41,12 +39,14 @@
 			placeholder="Please enter your email"
 			class="w-full app appearance-none shadow-sm border
 			border-gray-200 p-2 focus:outline-none focus:border-gray-500
-			rounded-lg " />
+			rounded-lg "
+		/>
 	</div>
 	<button
 		type="submit"
 		class=" w-full shadow-sm rounded bg-blue-500 hover:bg-blue-600
-		text-white py-2 px-4">
+		text-white py-2 px-4"
+	>
 		Log In
 	</button>
 </form>
